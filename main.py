@@ -1,3 +1,14 @@
+#-------------------------------------------------------------------------------
+# Name:        McDonalds Shell
+# 
+# Purpose:     Assignment solution
+#
+# Author:      Aditya Bansode
+#
+# Created:     25-07-2024
+#-------------------------------------------------------------------------------
+
+
 import traceback
 from doctest import UnexpectedException
 from typing import List
@@ -11,18 +22,16 @@ class PurchaseItem(object):
         self.name = str(option)
 
 
-def get_total_order_amount(order: List[PurchaseItem]):
+def get_total_order_amount(order: List[PurchaseItem]) -> float:
 
     """
     The total cost of all the items ordered
     """
-
-    raise NotImplementedError(
-        "REMOVE the error and RETURN the total amount for the order"
-    )
+    
+    return sum(item.price for item in order)
 
 
-def get_service_charge(order: List[PurchaseItem]):
+def get_service_charge(order: List[PurchaseItem]) -> float:
 
     """
     For every Rs. 100, the service charge amount should increase by 1% of order amount, upto a max of 20%
@@ -33,10 +42,15 @@ def get_service_charge(order: List[PurchaseItem]):
         Order Amount = 1500, Service Charge = 225
         Order Amount = 3000, Service Charge = 600
     """
-
-    raise NotImplementedError(
-        "REMOVE the error and RETURN service charge amount for the order"
-    )
+   
+    total_amount = get_total_order_amount(order)
+    if total_amount < 100:
+        return 0
+    
+    charge_percentage = min(total_amount // 100, 20)
+    service_charge =  total_amount * (charge_percentage / 100)
+    
+    return round(service_charge, 1)
 
 
 class Option(object):
@@ -47,9 +61,9 @@ class Option(object):
         if d:
             self.n = d.get("name")
             self.p = d.get("price")
-        if self.p == None:
+        if self.p is None:
             self.p = 0
-        if self.n == None:
+        if self.n is None:
             raise AttributeError
         self.pu = self.pu if self.pu else "Rs."
 
@@ -83,7 +97,6 @@ def get_option_from_result(result, options):
     for option in options:
         if str(option) == result:
             return option
-
     raise UnexpectedException
 
 
