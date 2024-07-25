@@ -5,39 +5,38 @@
 - Clone this repository
 - `cd` into the new directory (that you cloned)
 - `pip install bullet`
-- `python3 main.py` 
-
-### Challenge Instructions
-
-When you run `python3 main.py`,  you will enter the **McDonalds Shell** (_yumm_), here you can order some items and then finally the shell will show you the bill.
-
-We need to ensure that the bill shows the correct amounts for `Order Amount`, `Service Charge`, and `Final Amount`.
-
-That's all folks. 
-
-*Error*
+- `python3 main.py`
 
 
-https://user-images.githubusercontent.com/19727424/189662227-114abaa5-f268-4c2d-804e-c9ecb2244a3f.mp4
+3. **Follow the Prompts:**
+   - Add items and beverages to your order as prompted.
+   - The application will display a final bill with the total amount and service charge.
+
+## Code Overview
+
+- **`main.py`**: Contains the main logic for ordering, calculation, and displaying the bill.
+- **`PurchaseItem`**: Represents an item purchased by the user.
+- **`Option`**: Represents a menu option (food or beverage).
+- **`get_total_order_amount(order: List[PurchaseItem])`**: Calculates the total cost of the order.
+- **`get_service_charge(order: List[PurchaseItem])`**: Calculates the service charge based on the order amount.
+
+## Screenshots
+
+### Initial Menu
+![initial_menu](https://github.com/user-attachments/assets/f6f962f3-9f7d-4568-953a-d8cf5cb79326)
+*Description:* The starting screen where users can select food items.
 
 
+### Ordering Items
+![ordering_items](https://github.com/user-attachments/assets/203ff794-f407-41b3-9ee3-0f294f58fae1)
+*Description:* The interface showing items added to the order.
+
+### Final Bill
+![final_bill](https://github.com/user-attachments/assets/9679b07a-3f79-43ff-ba01-a01135bad850)
+*Description:* The final bill summary displaying the order amount, service charge, and total amount.
 
 
-*Success*
+## Acknowledgments
 
-
-https://user-images.githubusercontent.com/19727424/189662251-d0a754ef-a761-4e75-ac23-26739e85556a.mp4
-
-
-### Submitting your challenge
-
-There are multiple ways that you can submit the challenge.
-1. send us the `main.py` file
-2. send us a zipped version of the directory
-3. Fork the repo and send us a link after you have made your changes
-
-### How we score
-
-- 40 points for the correct `Order Amount`
-- 40 points for the correct `Service Charge`
-- 20 points for leaving the code in a better position than you found it
+- Thank you for the opportunity to work on this assignment.
+- Utilizes the `bullet` library for enhanced shell-based interaction.
